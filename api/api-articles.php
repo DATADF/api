@@ -1,11 +1,11 @@
 <?php
 
 
-function api_get_services(){
+function api_get_articles(){
 
     $posts = array();
 
-    $args = array('post_type' => 'services', 'post_per_page' => -1);
+    $args = array('post_type' => 'articles', 'post_per_page' => -1);
 
     $loop = new WP_Query($args);
 
@@ -14,15 +14,12 @@ function api_get_services(){
         $id         = get_the_ID();
         $slug       = get_post_field('post_name', $id);
         $title      = get_the_title($id);
-        $resumo     = get_field('resumo', $id);
-        $category   = get_terms('category');
+
 
         $post = array(
             'id'        => $id,
             'slug'      => $slug,
             'title'     => $title,
-            'resumo'    => $resumo,
-            'category'  => $category,
 
         );
 
@@ -35,13 +32,13 @@ function api_get_services(){
 
 }
 
-function api_register_services_routes(){
-    register_rest_route('kolitech/v1', '/services', array(
+function api_register_articles_routes(){
+    register_rest_route('kolitech/v1', '/articles', array(
         'methods' => 'GET',
-        'callback' => 'api_get_services'
+        'callback' => 'api_get_articles'
     ));
 }
 
-add_action('rest_api_init', 'api_register_services_routes');
+add_action('rest_api_init', 'api_register_articles_routes');
 
 ?> 

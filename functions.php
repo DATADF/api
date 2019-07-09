@@ -9,6 +9,10 @@ require_once($template_diretorio . '/custom_post_type/services.php');
 require_once($template_diretorio . '/custom_post_type/articles.php');
 
 require_once($template_diretorio . '/api/api-services.php');
+require_once($template_diretorio . '/api/api-service.php');
+
+require_once($template_diretorio . '/api/api-articles.php');
+require_once($template_diretorio . '/api/api-article.php');
 
 
 

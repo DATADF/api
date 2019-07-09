@@ -21,7 +21,7 @@ function create_articles_post() {
         'label'               => __('articles'),
         'description'         => __('Best Crunchify Articles'),
         'labels'              => $labels,
-        'supports'            => array('title', 'editor', 'excerpt'),
+        'supports'            => array('title', 'excerpt'),
         'public'              => true,
         'hierarchical'        => false,
         'show_ui'             => true,
@@ -41,38 +41,6 @@ function create_articles_post() {
 }
 
 add_action('init', 'create_articles_post');
-
-
-// Let us create Taxonomy for Custom Post Type
-add_action('init', 'crunchify_create_type_articles_custom_taxonomy', 1);
-
-//create a custom taxonomy name it "type" for your posts
-function crunchify_create_type_articles_custom_taxonomy()
-{
-
-    $labels = array(
-        'name' => _x('Types Articles', 'taxonomy general name'),
-        'singular_name' => _x('Type Article', 'taxonomy singular name'),
-        'search_items' =>  __('Search Types Articles'),
-        'all_items' => __('All Types Articles'),
-        'parent_item' => __('Parent Type Article'),
-        'parent_item_colon' => __('Parent Type Article:'),
-        'edit_item' => __('Edit Type Article'),
-        'update_item' => __('Update Type Article'),
-        'add_new_item' => __('Add New Type Article'),
-        'new_item_name' => __('New Type Article Name'),
-        'menu_name' => __('Types Articles'),
-    );
-
-    register_taxonomy('type articles', array('articles'), array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'type'),
-    ));
-}
 
 
 
