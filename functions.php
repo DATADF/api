@@ -6,7 +6,10 @@ $template_diretorio = get_template_directory();
 
 require_once($template_diretorio . '/custom_post_type/services.php');
 
-require_once($template_diretorio . '/endpoints/services_post.php');
+require_once($template_diretorio . '/custom_post_type/articles.php');
+
+require_once($template_diretorio . '/api/api-services.php');
+
 
 
 
